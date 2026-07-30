@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blink Beauty | Estudio de Pestañas &amp; Cejas</title>
+<link rel="stylesheet" href="style.css">
+
+<!-- ============ BOOTSTRAP 5 CDN ============ -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap Icons (para el ícono de WhatsApp y otros) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<!-- Tipografía -->
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Sora:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<!-- =====================================================
+     NAVBAR (componente obligatorio Bootstrap)
+===================================================== -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#inicio">Blink <span>Beauty</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Abrir menú">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarMain">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-3">
+        <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+        <li class="nav-item ms-lg-2">
+          <a class="btn btn-accent rounded-pill px-3" href="#contacto">Reservar cita</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+<!-- =====================================================
+     HERO / INICIO
+===================================================== -->
+<header id="inicio" class="hero-section">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-8">
+        <span class="badge rounded-pill eyebrow-badge px-3 py-2 mb-3">✦ ESTUDIO ESPECIALIZADO EN PESTAÑAS &amp; CEJAS</span>
+        <h1 class="display-4 fw-bold mb-3">Tu mirada merece <span class="text-accent">destacar</span></h1>
+        <p class="lead text-white-50 mb-4">
+          Blink Beauty es un estudio especializado en extensiones de pestañas, diseño de cejas,
+          lifting y laminado. Realzamos tu belleza natural con técnicas certificadas y resultados elegantes.
+        </p>
+        <div class="d-flex flex-wrap gap-3 mb-5">
+          <a href="#contacto" class="btn btn-accent btn-lg rounded-pill px-4">Reservar ahora</a>
+          <a href="#servicios" class="btn btn-outline-light btn-lg rounded-pill px-4">Explorar servicios</a>
+        </div>
+        <div class="row text-center text-lg-start">
+          <div class="col-4"><h3 class="text-accent fw-bold">+2.4k</h3><small class="text-white-50">Clientas satisfechas</small></div>
+          <div class="col-4"><h3 class="text-accent fw-bold">6+</h3><small class="text-white-50">Años de experiencia</small></div>
+          <div class="col-4"><h3 class="text-accent fw-bold">8</h3><small class="text-white-50">Técnicas especializadas</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- =====================================================
+     SERVICIOS (Cards + Modal - componentes obligatorios)
+===================================================== -->
+<section id="servicios">
+  <div class="container">
+    <div class="text-center mx-auto mb-5" style="max-width:640px;">
+      <span class="badge rounded-pill eyebrow-badge px-3 py-2 mb-3">✦ NUESTROS SERVICIOS</span>
+      <h2 class="fw-bold">Técnicas que transforman miradas</h2>
+      <p class="text-white-50">Cada servicio está diseñado con rigor artístico y materiales certificados.</p>
+    </div>
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4" id="servicesRow">
+      <!-- Las cards se generan dinámicamente con JavaScript a partir del array serviceData -->
+    </div>
+  </div>
+</section>
+
+<!-- Modal reutilizable para el detalle de cada servicio -->
+<div class="modal fade" id="serviceModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header border-secondary">
+        <h5 class="modal-title" id="modalServiceTitle">Servicio</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <img id="modalServiceImg" src="" class="img-fluid rounded mb-3" alt="Imagen del servicio">
+        <span id="modalServiceTag" class="badge eyebrow-badge mb-2"></span>
+        <p id="modalServiceDesc" class="text-white-50"></p>
+        <p class="price-tag mb-0">desde <span id="modalServicePrice"></span> / sesión</p>
+      </div>
+      <div class="modal-footer border-secondary">
+        <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Cerrar</button>
+        <a id="modalServiceWhats" href="#" target="_blank" class="btn btn-accent">
+          <i class="bi bi-whatsapp me-1"></i> Reservar por WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- =====================================================
+     CONTACTO (Formulario + Alert + WhatsApp)
+===================================================== -->
+<section id="contacto" class="bg-soft">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-5">
+        <span class="badge rounded-pill eyebrow-badge px-3 py-2 mb-3">✦ CONTACTO</span>
+        <h2 class="fw-bold mb-3">Agenda tu cita hoy</h2>
+        <p class="text-white-50 mb-4">Completa el formulario y te contactaremos en menos de 24 horas, o escríbenos directo por WhatsApp.</p>
+
+        <ul class="list-unstyled mb-4">
+          <li class="mb-3"><i class="bi bi-geo-alt text-accent me-2"></i>San Agustin, Huila</li>
+          <li class="mb-3"><i class="bi bi-clock text-accent me-2"></i>Lun–Sáb: 9:00 AM – 7:00 PM<br>Domingo: 10:00 AM – 4:00 PM</li>
+          <li class="mb-3"><i class="bi bi-telephone text-accent me-2"></i>+57 3223511282</li>
+          <li class="mb-3"><i class="bi bi-envelope text-accent me-2"></i>sharit@blinkbeauty.com</li>
+        </ul>
+
+        <!-- Alert de Bootstrap -->
+        <div class="alert eyebrow-badge d-flex align-items-center gap-2" role="alert">
+          <i class="bi bi-info-circle fs-5"></i>
+          <div>Respuesta inmediata por WhatsApp en horario de atención.</div>
+        </div>
+
+        <a href="https://wa.me/573223511282?text=Hola%20Blink%20Beauty%2C%20quiero%20agendar%20una%20cita"
+           target="_blank" class="btn btn-success btn-lg w-100">
+          <i class="bi bi-whatsapp me-2"></i>Escríbenos por WhatsApp
+        </a>
+      </div>
+
+      <div class="col-lg-7">
+        <form class="row g-3 needs-validation" novalidate id="bookingForm">
+          <div class="col-md-6">
+            <label class="form-label">Nombre completo</label>
+            <input type="text" class="form-control" placeholder="Sharit Gómez" required>
+            <div class="invalid-feedback">Por favor ingresa tu nombre.</div>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Teléfono</label>
+            <input type="tel" class="form-control" placeholder="+57 312 345 6789" required>
+            <div class="invalid-feedback">Ingresa un teléfono válido.</div>
+          </div>
+          <div class="col-12">
+            <label class="form-label">Correo electrónico</label>
+            <input type="email" class="form-control" placeholder="sharit@gomez.com" required>
+            <div class="invalid-feedback">Ingresa un correo válido.</div>
+          </div>
+          <div class="col-12">
+            <label class="form-label">Servicio de interés</label>
+            <select class="form-select" required>
+              <option value="" selected disabled>Selecciona un servicio</option>
+              <option>Extensiones Clásicas</option>
+              <option>Extensiones Híbridas</option>
+              <option>Ojo de Ardilla</option>
+              <option>Mega Volumen</option>
+              <option>Lifting de Pestañas</option>
+              <option>Laminado de Cejas</option>
+              <option>Diseño de Cejas</option>
+              <option>Perfilado con Cera</option>
+            </select>
+            <div class="invalid-feedback">Selecciona un servicio.</div>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Fecha deseada</label>
+            <input type="date" class="form-control">
+          </div>
+          <div class="col-12">
+            <label class="form-label">Mensaje (opcional)</label>
+            <textarea class="form-control" rows="3" placeholder="¿Algo que debamos saber antes de tu cita?"></textarea>
+          </div>
+          <div class="col-12">
+            <button type="submit" class="btn btn-accent btn-lg w-100">Solicitar cita</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+<footer class="bg-dark pt-5 pb-3 border-top border-secondary-subtle">
+  <div class="container">
+    <div class="row g-4 pb-4 border-bottom border-secondary-subtle">
+      <div class="col-lg-4">
+        <h4 class="fw-bold">Blink <span class="text-accent">Beauty</span></h4>
+        <p class="text-white-50">Studio especializado en pestañas y cejas. Arte, precisión y elegancia en cada cita.</p>
+        <div class="d-flex gap-2">
+          <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="social-icon"><i class="bi bi-tiktok"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h6 class="text-white-50 text-uppercase small fw-bold mb-3">Navegación</h6>
+        <ul class="list-unstyled">
+          <li class="mb-2"><a href="#inicio">Inicio</a></li>
+          <li class="mb-2"><a href="#servicios">Servicios</a></li>
+          <li class="mb-2"><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-3">
+        <h6 class="text-white-50 text-uppercase small fw-bold mb-3">Servicios</h6>
+        <ul class="list-unstyled">
+          <li class="mb-2"><a href="#servicios">Extensiones Clásicas</a></li>
+          <li class="mb-2"><a href="#servicios">Volumen Ruso</a></li>
+          <li class="mb-2"><a href="#servicios">Ojo de Ardilla</a></li>
+          <li class="mb-2"><a href="#servicios">Lifting de Pestañas</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3">
+        <h6 class="text-white-50 text-uppercase small fw-bold mb-3">Contacto</h6>
+        <p class="mb-2"><i class="bi bi-geo-alt text-accent me-2"></i>Pitalito, Huila</p>
+        <p class="mb-2"><i class="bi bi-telephone text-accent me-2"></i>+57 3223511282</p>
+        <p class="mb-2"><i class="bi bi-envelope text-accent me-2"></i>hola@blinkbeauty.com</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Botón flotante de WhatsApp -->
+<a href="https://wa.me/573223511282?text=Hola%20Blink%20Beauty%2C%20quiero%20más%20información"
+   target="_blank" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+  <i class="bi bi-whatsapp"></i>
+</a>
+
+<!-- ============ BOOTSTRAP JS BUNDLE ============ -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  // ---------------------------------------------------------
+  // Datos de los servicios: se usan para generar las cards
+  // y para llenar el modal reutilizable dinámicamente.
+  // ---------------------------------------------------------
+  const serviceData = [
+    { tag:"Más popular", title:"Extensiones Clásicas", price:"$60k",
+      desc:"Extensión pelo a pelo para un look natural y elegante que realza tu mirada sin excesos.",
+      img:"../img/Extensiones Clásicas.png" },
+    { tag:"Tendencia", title:"Extensiones Híbridas", price:"$70k",
+      desc:"Fusión perfecta entre clásicas y volumen para un resultado dramático y natural al mismo tiempo.",
+      img:"../img/Extensiones Híbridas.png" },
+    { tag:"Premium", title:"Volumen Ruso", price:"$80",
+      desc:"Abanicos artesanales de 3 a 6 extensiones por pestaña para una mirada de impacto total.",
+      img:"../img/volumen-russo-1.jpg" },
+    { tag:"Extremo", title:"Ojo de Ardilla", price:"$75k",
+      desc:"Técnica que alarga y eleva la mirada al colocar las pestañas más largas antes de la esquina externa del ojo. Ideal para un efecto natural, elegante y favorecedor.",
+      img:"../img/ojo ardilla.jpg" },
+    { tag:"Sin extensiones", title:"Lifting de Pestañas", price:"$45",
+      desc:"Levanta y curva tus pestañas naturales desde la raíz con resultados que duran hasta 8 semanas.",
+      img:"../img/Lifting de Pestañas.webp" },
+    { tag:"Must have", title:"Laminado de Cejas", price:"$35k",
+      desc:"Alinea, fija y da forma a tus cejas con efecto peinado que dura hasta 6 semanas.",
+      img:"../img/Laminado de Cejas.jpg" },
+    { tag:"Personalizado", title:"Diseño de Cejas", price:"$30k",
+      desc:"Mapeo facial preciso para crear el arco perfecto que armoniza con tus rasgos únicos.",
+      img:"../img/Diseño de Cejas.jpg" },
+    { tag:"Clásico", title:"Perfilado con Cera", price:"$15k",
+      desc:"Definición precisa con cera tibia para cejas perfectamente delineadas.",
+      img:"../img/Perfilado-de-cejas-con-cera.jpg" },
+  ];
+
+  // Genera dinámicamente las cards de servicios en el contenedor #servicesRow
+  const servicesRow = document.getElementById('servicesRow');
+  serviceData.forEach((service, index) => {
+    const col = document.createElement('div');
+    col.className = 'col';
+    col.innerHTML = `
+      <div class="card card-service h-100">
+        <img src="${service.img}" class="card-img-top" alt="${service.title}">
+        <div class="card-body d-flex flex-column">
+          <span class="badge eyebrow-badge align-self-start mb-2">${service.tag}</span>
+          <h5 class="card-title">${service.title}</h5>
+          <p class="card-text text-white-50 flex-grow-1">${service.desc}</p>
+          <p class="price-tag mb-3">desde ${service.price} <small class="text-white-50 fs-6">/ sesión</small></p>
+          <button class="btn btn-outline-light mt-auto" data-bs-toggle="modal" data-bs-target="#serviceModal" data-index="${index}">
+            Ver más detalles
+          </button>
+        </div>
+      </div>`;
+    servicesRow.appendChild(col);
+  });
+
+  // Al abrir el modal, lo llena con los datos del servicio seleccionado
+  const serviceModal = document.getElementById('serviceModal');
+  serviceModal.addEventListener('show.bs.modal', (event) => {
+    const button = event.relatedTarget;
+    const index = button.getAttribute('data-index');
+    const service = serviceData[index];
+
+    document.getElementById('modalServiceTitle').textContent = service.title;
+    document.getElementById('modalServiceImg').src = service.img;
+    document.getElementById('modalServiceTag').textContent = service.tag;
+    document.getElementById('modalServiceDesc').textContent = service.desc;
+    document.getElementById('modalServicePrice').textContent = service.price;
+
+    const mensaje = encodeURIComponent(`Hola Blink Beauty, quiero agendar el servicio: ${service.title}`);
+    document.getElementById('modalServiceWhats').href = `https://wa.me/573223511282?text=${mensaje}`;
+  });
+
+  // Validación básica del formulario de contacto (Bootstrap validation)
+  const form = document.getElementById('bookingForm');
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    event.stopPropagation();
+    if (!form.checkValidity()) {
+      form.classList.add('was-validated');
+    } else {
+      alert('¡Gracias! Tu solicitud de cita fue registrada. Te contactaremos en menos de 24 horas.');
+      form.reset();
+      form.classList.remove('was-validated');
+    }
+  });
+</script>
+
+</body>
+</html>

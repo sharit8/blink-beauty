@@ -1,0 +1,174 @@
+:root{
+  --blue:#2f7bff;
+  --blue-dark:#1a4fce;
+  --bg-dark:#05070d;
+  --bg-soft:#0d1220;
+}
+
+body{
+  background-color: var(--bg-dark);
+  color: #f1f3f8;
+  font-family: 'Manrope', sans-serif;
+}
+
+h1,
+h2,
+h3,
+.navbar-brand{
+  font-family: 'Sora', sans-serif;
+}
+
+.text-accent{
+  color: var(--blue);
+}
+
+.btn-accent{
+  background-color: var(--blue);
+  border-color: var(--blue);
+  color: #fff;
+}
+
+.btn-accent:hover{
+  background-color: var(--blue-dark);
+  border-color: var(--blue-dark);
+  color: #fff;
+}
+
+.bg-soft{
+  background-color: var(--bg-soft);
+}
+
+section{
+  padding: 90px 0;
+}
+
+.eyebrow-badge{
+  background-color: rgba(47,123,255,.12);
+  color: var(--blue);
+  border: 1px solid rgba(47,123,255,.35);
+  font-weight: 700;
+  letter-spacing: .5px;
+}
+
+.hero-section{
+  padding-top: 140px;
+  background:
+    radial-gradient(
+      ellipse 900px 500px at 10% -10%,
+      rgba(47,123,255,.25),
+      transparent 60%
+    ),
+    var(--bg-dark);
+}
+
+.card-service{
+  background-color: var(--bg-soft);
+  border: 1px solid rgba(255,255,255,.08);
+  color: #f1f3f8;
+  transition: transform .2s ease, border-color .2s ease;
+}
+
+.card-service:hover{
+  transform: translateY(-6px);
+  border-color: var(--blue);
+}
+
+.card-service .card-img-top{
+  height: 180px;
+  object-fit: cover;
+}
+
+.price-tag{
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--blue);
+  font-family: 'Sora', sans-serif;
+}
+
+.navbar{
+  backdrop-filter: blur(10px);
+}
+
+.navbar-brand span{
+  color: var(--blue);
+}
+
+
+.form-control,
+.form-select{
+  background-color: #0a0e18;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.15);
+}
+
+.form-control::placeholder{
+  color: #6c7488;
+}
+
+.form-control:focus,
+.form-select:focus{
+  background-color: #0a0e18;
+  color: #fff;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 .25rem rgba(47,123,255,.25);
+}
+
+footer a{
+  color: #c9cfdc;
+  text-decoration: none;
+}
+
+footer a:hover{
+  color: var(--blue);
+}
+
+.whatsapp-float{
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1050;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,.4);
+  font-size: 1.7rem;
+  color: #fff;
+}
+
+.whatsapp-float:hover{
+  color: #fff;
+  transform: scale(1.08);
+}
+
+.modal-content{
+  background-color: var(--bg-soft);
+  color: #f1f3f8;
+  border: 1px solid rgba(255,255,255,.1);
+}
+
+.carousel-item img{
+  height: 420px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.social-icon{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255,255,255,.06);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.1);
+}
+
+.social-icon:hover{
+  background-color: var(--blue);
+  color: #fff;
+}
